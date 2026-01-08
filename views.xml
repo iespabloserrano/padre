@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <!-- Vista para el modelo padre.person -->
+    <record id="view_form_person" model="ir.ui.view">
+         <field name="name">padre.person.form</field>
+         <field name="model">padre.person</field>
+         <field name="arch" type="xml">
+              <form string="Person">
+                <sheet>
+                     <group>
+                          <field name="name"/>
+                          <field name="age"/>
+                     </group>
+                </sheet>
+              </form>
+         </field>
+    </record>
+    <!-- add list view-->
+    <record id="view_tree_person" model="ir.ui.view">
+         <field name="name">padre.person.tree</field>
+         <field name="model">padre.person</field>
+         <field name="arch" type="xml">
+              <list string="Person">
+                   <field name="name"/>
+                   <field name="age"/>
+              </list>
+         </field>
+    </record>
+
+    <!-- Action to open the person views -->
+    <record id="action_padre_person" model="ir.actions.act_window">
+         <field name="name">Persons</field>
+         <field name="res_model">padre.person</field>
+         <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_padre_root" name="Padre Module"/>
+    <menuitem id="menu_padre_person" name="Persons" parent="menu_padre_root" action="action_padre_person"/>
+
+</odoo>
